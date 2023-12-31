@@ -10,6 +10,7 @@ function AddTodo() {
     const addTodoHandler=(e)=>{
         e.preventDefault()
         //dispatch k andr jo bhi reducer hai,dispatch k thru wo send kr diya
+        
         dispatch(addTodo(input))
         setInput('')
     }

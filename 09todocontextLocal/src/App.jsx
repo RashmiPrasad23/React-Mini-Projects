@@ -16,13 +16,14 @@ function App() {
     // values de degi n h ab nyi array mei spread operator use krkr old values k saath new waali ko add kr di
     // ab new waali todo jo hai ,wo bnani pdegi since todo ek object k form mei hai ,isiliye hm id set krenge jo ki dynamic ho
     setTodos((prev)=>[...prev,{id:Date.now(),...todo}])
+    //setTodos([...todos,{id:Date.now(),...todo}])            aise bhi kr skte hai
    }
 
    const updateTodo=(id,todo)=>{
     //kon sa aisa todo hai jo match kr rha hai id se,isiliye hmne puraani array li  n usmei map lgaya
     // n phir hmne match kri ki ocurrent prevtodo waali id passed id se match krti hai ya nhi,agr haan toh new todo set kr do,wrna
     // prev waali he rehne do
-         setTodos((prev)=>prev.map((prevTodo)=>{prevTodo.id===id?todo:prevTodo}))
+         setTodos((prev)=>prev.map((prevTodo)=>{prevTodo.id===id?todo:prevTodo})) 
    }
 
    const deleteTodo=(id)=>{
