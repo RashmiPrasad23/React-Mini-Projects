@@ -5,9 +5,12 @@ import { TodoProvider } from './contexts/TodoContext'
 import { TodoForm, TodoItem } from './components'
 
 function App() {
+  //iss state mei saare todos hai
    const [todos,setTodos]=useState([])
    
+   //addTodo mei ye jo todo paas hua hai wo TodoForm se aayega
    const addTodo=(todo)=>{
+    //upar state waale todos mei pehle se bhi todo ho skte hai toh direct setTode(todo) mei todo paas krne se prev values delete ho jaayegi,
     // direct setTode(todo) krne se puraani value saare htt jaati and nyi waali add ho jaati,but hm aisa nhi chahte
     // hm new todo ko puraane todo mei add krna chahte hai, isiliye we used this "prev" , ye hmey puraane array ki
     // values de degi n h ab nyi array mei spread operator use krkr old values k saath new waali ko add kr di
@@ -39,6 +42,7 @@ function App() {
    //hmaare paas already todo present ho skte hai ,toh usko hm localstorage se lekr apne 
    //paas laana chahte hai, isiliye getItem,
    useEffect(()=>{
+                                                //key
     const todos=JSON.parse(localStorage.getItem("todos"))
     if(todos && todos.length>0){
       setTodos(todos)

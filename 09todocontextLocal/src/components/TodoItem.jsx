@@ -2,11 +2,17 @@ import React, { useState } from 'react'
 import { useTodo } from '../contexts/TodoContext';
 function TodoItem({ todo }) {
 
+    //state ye btaane k liye ki editable hai ki nhi
     const [isTodoEditable,setIsTodoEditable]=useState(false)
-    const [todoMsg,setTodoMsg]=useState(todo.todo)
+
+    //state ye btaane k liye ki msg kya hai todo item mei jb hm edit pr click kr dete hai
+    const [todoMsg,setTodoMsg]=useState(todo.todo) //jo bhi todo hai uske adr ka todo msg
+
+    //pehle cntext lekr aayenge qki usi se saari functionality aayegi
     const {updateTodo,deleteTodo,toggleComplete}=useTodo()
 
     const editTodo=()=>{
+                           //pehle puri obj ko spread kr li n usmei todo ki ko update kr di, todoMsg se
         updateTodo(todo.id,{...todo,todo:todoMsg})
         setIsTodoEditable(false)
     }
